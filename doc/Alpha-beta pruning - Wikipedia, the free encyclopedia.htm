@@ -1,0 +1,472 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0047)http://en.wikipedia.org/wiki/Alpha-beta_pruning -->
+<HTML lang=en dir=ltr xml:lang="en" 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Alpha-beta pruning - Wikipedia, the free encyclopedia</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META 
+content="Alpha-beta pruning,Artificial Intelligence: A Modern Approach,Best first search,Big O notation,Branch and bound,Branching factor,Chess,Combinatorial optimization,Depth-first search,Game tree,Go (board game)" 
+name=keywords><LINK href="/favicon.ico" rel="shortcut icon"><LINK 
+title="Wikipedia (English)" href="/w/opensearch_desc.php" 
+type=application/opensearchdescription+xml rel=search><LINK 
+href="http://www.gnu.org/copyleft/fdl.html" rel=copyright>
+<STYLE type=text/css media=screen,projection>@import url( /skins-1.5/monobook/main.css?29 );
+</STYLE>
+<LINK media=print 
+href="Alpha-beta pruning - Wikipedia, the free encyclopedia_archivos/commonPrint.css" 
+type=text/css rel=stylesheet><!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?29";</style><![endif]--><!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?29";</style><![endif]--><!--[if IE 6]>
+<STYLE type=text/css>@import url( /skins-1.5/monobook/IE60Fixes.css?29 );
+</STYLE>
+<![endif]--><!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?29";</style><![endif]--><!--[if lt IE 7]>
+<SCRIPT 
+src="Alpha-beta pruning - Wikipedia, the free encyclopedia_archivos/IEFixes.js" 
+type=text/javascript></SCRIPT>
+
+<META http-equiv=imagetoolbar content=no><![endif]-->
+<SCRIPT type=text/javascript>
+			var skin = "monobook";
+			var stylepath = "/skins-1.5";
+
+			var wgArticlePath = "/wiki/$1";
+			var wgScriptPath = "/w";
+			var wgServer = "http://en.wikipedia.org";
+                        
+			var wgCanonicalNamespace = "";
+			var wgNamespaceNumber = 0;
+			var wgPageName = "Alpha-beta_pruning";
+			var wgTitle = "Alpha-beta pruning";
+			var wgArticleId = 159501;
+			var wgIsArticle = true;
+                        
+			var wgUserName = null;
+			var wgUserLanguage = "en";
+			var wgContentLanguage = "en";
+		</SCRIPT>
+
+<SCRIPT 
+src="Alpha-beta pruning - Wikipedia, the free encyclopedia_archivos/wikibits.js" 
+type=text/javascript><!-- wikibits js --></SCRIPT>
+
+<SCRIPT 
+src="Alpha-beta pruning - Wikipedia, the free encyclopedia_archivos/index.php" 
+type=text/javascript><!-- site js --></SCRIPT>
+
+<STYLE type=text/css>@import url( /w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400 );
+@import url( /w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400 );
+@import url( /w/index.php?title=-&action=raw&gen=css&maxage=2678400 );
+</STYLE>
+<!-- Head Scripts -->
+<SCRIPT 
+src="Alpha-beta pruning - Wikipedia, the free encyclopedia_archivos/ajax.js" 
+type=text/javascript></SCRIPT>
+
+<META content="MSHTML 6.00.2900.2995" name=GENERATOR></HEAD>
+<BODY class="mediawiki ns-0 ltr page-Alpha-beta_pruning">
+<DIV id=globalWrapper>
+<DIV id=column-content>
+<DIV id=content><A id=top name=top></A>
+<DIV id=siteNotice>
+<DIV style="FONT-SIZE: 80%; TEXT-ALIGN: right">Your <B><A class=extiw 
+title=wikimedia:Fundraising 
+href="http://wikimediafoundation.org/wiki/Fundraising">continued 
+donations</A></B> keep Wikipedia running!&nbsp;&nbsp;&nbsp;&nbsp;</DIV></DIV>
+<H1 class=firstHeading>Alpha-beta pruning</H1>
+<DIV id=bodyContent>
+<H3 id=siteSub>From Wikipedia, the free encyclopedia</H3>
+<DIV id=contentSub></DIV>
+<DIV id=jump-to-nav>Jump to: <A 
+href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#column-one">navigation</A>, 
+<A 
+href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#searchInput">search</A></DIV><!-- start content -->
+<P><B>Alpha-beta pruning</B> is a <A title="Search algorithm" 
+href="http://en.wikipedia.org/wiki/Search_algorithm">search algorithm</A> that 
+reduces the number of nodes that need to be evaluated in the <A 
+title="Game tree" href="http://en.wikipedia.org/wiki/Game_tree">search tree</A> 
+by the <A title=Minimax 
+href="http://en.wikipedia.org/wiki/Minimax#Minimax_algorithm_with_alternate_moves">minimax 
+algorithm</A>. It is a search with adversary algorithm used commonly for 
+two-players games evaluation (<A title=Tic-tac-toe 
+href="http://en.wikipedia.org/wiki/Tic-tac-toe">Tic-tac-toe</A>, <A title=Chess 
+href="http://en.wikipedia.org/wiki/Chess">Chess</A>, <A title="Go (board game)" 
+href="http://en.wikipedia.org/wiki/Go_(board_game)">Go</A> ...). It stops 
+completely evaluating a move that a player can make when at least one reply has 
+been found that proves the move to be worse than a previously examined move. 
+Since it clearly does not benefit the player to play that move, it need not be 
+evaluated any further. This technique allows the search algorithm to save 
+processing time without affecting the final result.</P>
+<TABLE class=toc id=toc summary=Contents>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV id=toctitle>
+      <H2>Contents</H2></DIV>
+      <UL>
+        <LI class=toclevel-1><A 
+        href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#Improvements_over_na.C3.AFve_minimax"><SPAN 
+        class=tocnumber>1</SPAN> <SPAN class=toctext>Improvements over naïve 
+        minimax</SPAN></A> 
+        <LI class=toclevel-1><A 
+        href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#Heuristic_improvements"><SPAN 
+        class=tocnumber>2</SPAN> <SPAN class=toctext>Heuristic 
+        improvements</SPAN></A> 
+        <LI class=toclevel-1><A 
+        href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#Other_algorithms"><SPAN 
+        class=tocnumber>3</SPAN> <SPAN class=toctext>Other algorithms</SPAN></A> 
+
+        <LI class=toclevel-1><A 
+        href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#Pseudocode"><SPAN 
+        class=tocnumber>4</SPAN> <SPAN class=toctext>Pseudocode</SPAN></A> 
+        <LI class=toclevel-1><A 
+        href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#See_also"><SPAN 
+        class=tocnumber>5</SPAN> <SPAN class=toctext>See also</SPAN></A> 
+        <LI class=toclevel-1><A 
+        href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#References"><SPAN 
+        class=tocnumber>6</SPAN> <SPAN class=toctext>References</SPAN></A> 
+        <LI class=toclevel-1><A 
+        href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#External_links"><SPAN 
+        class=tocnumber>7</SPAN> <SPAN class=toctext>External links</SPAN></A> 
+        </LI></UL></TD></TR></TBODY></TABLE>
+<P>
+<SCRIPT type=text/javascript>
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</SCRIPT>
+<A id=Improvements_over_na.C3.AFve_minimax 
+name=Improvements_over_na.C3.AFve_minimax></A></P>
+<H2><SPAN class=editsection>[<A 
+title="Edit section: Improvements over naïve minimax" 
+href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=1">edit</A>]</SPAN> 
+<SPAN class=mw-headline>Improvements over naïve minimax</SPAN></H2>
+<P>The benefit of alpha-beta pruning lies in the fact that branches of the 
+search tree can be eliminated. The search time can in this way be limited to the 
+'more promising' subtree, and a deeper search can be performed in the same time. 
+Like its predecessor, it belongs to the <A title="Branch and bound" 
+href="http://en.wikipedia.org/wiki/Branch_and_bound">branch and bound</A> class 
+of algorithms. The optimisation typically reduces the effective branching factor 
+by two compared to simple minimax. The algorithm does even better if the nodes 
+are evaluated in an optimal or near optimal order.</P>
+<P>With an (average or constant) <A title="Branching factor" 
+href="http://en.wikipedia.org/wiki/Branching_factor">branching factor</A> of 
+<I>b</I>, and a search depth of <I>d</I> <A title="Ply (chess)" 
+href="http://en.wikipedia.org/wiki/Ply_(chess)">ply</A>, the maximum number of 
+leaf node positions evaluated (when the move ordering is pessimal) is <A 
+title="Big O notation" 
+href="http://en.wikipedia.org/wiki/Big_O_notation"><I>O</I></A>(<I>b</I>*<I>b</I>*...*<I>b</I>) 
+= <I>O</I>(<I>b</I><SUP><I>d</I></SUP>) – the same as a simple minimax search. 
+If the move ordering for the search is optimal (meaning the best moves always 
+searched first), the number of positions searched is about 
+<I>O</I>(<I>b</I>*1*<I>b</I>*1*...*<I>b</I>) for odd depth and 
+<I>O</I>(<I>b</I>*1*<I>b</I>*1*...*1) for even depth, or <IMG class=tex 
+alt="O(b^{d/2}) = O(\sqrt{b^d})" 
+src="Alpha-beta pruning - Wikipedia, the free encyclopedia_archivos/d65c65f2496e7546c295c75ad15d9717.png">. 
+In the latter case, the effective branching factor is reduced to its <A 
+title="Square root" href="http://en.wikipedia.org/wiki/Square_root">square 
+root</A>, or, equivalently, the search can go twice as deep with the same amount 
+of computation.<SUP class=reference id=_ref-0><A title="" 
+href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#_note-0">[1]</A></SUP> The 
+explanation of <I>b</I>*1*<I>b</I>*1*... is that all the first player's moves 
+must be studied to find the best one, but for each, only the best second 
+player's move is needed to refute all but the first (and best) first player move 
+– alpha-beta ensures no other second player moves need be considered. If 
+<I>b</I>=40 (as in chess), and the search depth is 12 ply, the ratio between 
+optimal and pessimal sorting is a factor of nearly 40<SUP>6</SUP> or about 4 
+billion times.</P>
+<P>Normally during alpha-beta, the subtrees are temporarily dominated by either 
+a first player advantage (when many first player moves are good, and at each 
+search depth the first move checked by the first player is adequate, but all 
+second player responses are required to try and find a refutation), or vice 
+versa. This advantage can switch sides many times during the search if the move 
+ordering is incorrect, each time leading to inefficiency. As the number of 
+positions searched decreases exponentially each move nearer the current 
+position, it is worth spending considerable effort on sorting early moves. An 
+improved sort at any depth will exponentially reduce the total number of 
+positions searched, but sorting all positions at depths near the root node is 
+relatively cheap as there are so few of them. In practice, the move ordering is 
+often determined by the results of earlier, smaller searches, such as through <A 
+title="Iterative deepening depth-first search" 
+href="http://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search">iterative 
+deepening</A>.</P>
+<P>The algorithm maintains two values, alpha and beta, which represent the 
+minimum score that the maximizing player is assured of and the maximum score 
+that the minimizing player is assured of respectively. Initially alpha is 
+negative infinity and beta is positive infinity. As the recursion progresses the 
+"window" becomes smaller. When beta becomes less than alpha, it means that the 
+current position cannot be the result of best play by both players and hence 
+need not be explored further.</P>
+<P><A id=Heuristic_improvements name=Heuristic_improvements></A></P>
+<H2><SPAN class=editsection>[<A title="Edit section: Heuristic improvements" 
+href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=2">edit</A>]</SPAN> 
+<SPAN class=mw-headline>Heuristic improvements</SPAN></H2>
+<P>Further improvement can be achieved without sacrificing accuracy, by using 
+ordering <A title=Heuristic 
+href="http://en.wikipedia.org/wiki/Heuristic">heuristics</A> to search parts of 
+the tree that are likely to force alpha-beta cutoffs early. For example, in 
+chess, moves that take pieces may be examined before moves that do not, or moves 
+that have scored highly in <A title="Iterative deepening depth-first search" 
+href="http://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search">earlier 
+passes</A> through the game-tree analysis may be evaluated before others. 
+Another common, and very cheap, heuristic is the <A title="Killer heuristic" 
+href="http://en.wikipedia.org/wiki/Killer_heuristic">killer heuristic</A>, where 
+the last move that caused a beta-cutoff at the same level in the tree search is 
+always examined first. This idea can be generalised into a set of <A class=new 
+title="Refutation table" 
+href="http://en.wikipedia.org/w/index.php?title=Refutation_table&amp;action=edit">refutation 
+tables</A>.</P>
+<P>Alpha-beta search can be made even faster by considering only a narrow search 
+window (generally determined by guesswork based on experience). This is known as 
+<I>aspiration search</I>. In the extreme case, the search is performed with 
+alpha and beta equal; a technique known as <I>zero-window search</I>, 
+<I>null-window search</I>, or <I>scout search</I>. This is particularly useful 
+for win/loss searches near the end of a game where the extra depth gained from 
+the narrow window and a simple win/loss evaluation function may lead to a 
+conclusive result. If an aspiration search fails, it is straightforward to 
+detect whether it failed <I>high</I> (high edge of window was too low) or 
+<I>low</I> (lower edge of window was too high). This gives information about 
+what window values might be useful in a re-search of the position.</P>
+<P><A id=Other_algorithms name=Other_algorithms></A></P>
+<H2><SPAN class=editsection>[<A title="Edit section: Other algorithms" 
+href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=3">edit</A>]</SPAN> 
+<SPAN class=mw-headline>Other algorithms</SPAN></H2>
+<P>More advanced algorithms that are even faster while still being able to 
+compute the exact minimax value are known, such as <A title=Negascout 
+href="http://en.wikipedia.org/wiki/Negascout">Negascout</A> and <A title=MTD-f 
+href="http://en.wikipedia.org/wiki/MTD-f">MTD-f</A>.</P>
+<P>Since the minimax algorithm and its variants are inherently <A 
+title="Depth-first search" 
+href="http://en.wikipedia.org/wiki/Depth-first_search">depth-first</A>, a 
+strategy such as <A title="Iterative deepening depth-first search" 
+href="http://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search">iterative 
+deepening</A> is usually used in conjunction with alpha-beta so that a 
+reasonably good move can be returned even if the algorithm is interrupted before 
+it has finished execution. Another advantage of using iterative deepening is 
+that searches at shallower depths give move-ordering hints that can help produce 
+cutoffs for higher depth searches much earlier than would otherwise be 
+possible.</P>
+<P>Algorithms like <A class=new title=SSS* 
+href="http://en.wikipedia.org/w/index.php?title=SSS%2A&amp;action=edit">SSS*</A>, 
+on the other hand, use the <A title="Best first search" 
+href="http://en.wikipedia.org/wiki/Best_first_search">best-first</A> strategy. 
+This can potentially make them more time-efficient, but typically at a heavy 
+cost in space-efficiency. <SUP class=noprint 
+title="The text in the vicinity of this tag needs citation.">[<A 
+title="Wikipedia:Citing sources" 
+href="http://en.wikipedia.org/wiki/Wikipedia:Citing_sources"><I>citation&nbsp;needed</I></A>]</SUP></P>
+<P><A id=Pseudocode name=Pseudocode></A></P>
+<H2><SPAN class=editsection>[<A title="Edit section: Pseudocode" 
+href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=4">edit</A>]</SPAN> 
+<SPAN class=mw-headline>Pseudocode</SPAN></H2>
+<P><A title=Pseudocode 
+href="http://en.wikipedia.org/wiki/Pseudocode">Pseudocode</A> for the alpha-beta 
+algorithm is given below.</P><PRE><B>function</B> minimax(node, depth)
+    <B>return</B> alphabeta(node, depth, -∞, +∞)
+
+<B>function</B> alphabeta(node, depth, α, β)
+    <B>if</B> node is a terminal node <B>or</B> depth = 0
+        <B>return</B> the heuristic value of node
+    <B>if</B> the adversary is to play at node
+        <B>foreach</B> child of node
+            β := min(β, alphabeta(child, depth-1, α, β))
+            <B>if</B> α≥β
+                <B>return</B> α
+        <B>return</B> β
+    <B>else</B> {we are to play at node}
+        <B>foreach</B> child of node
+            α := max(α, alphabeta(child, depth-1, α, β))
+            <B>if</B> α≥β
+                <B>return</B> β
+        <B>return</B> α
+</PRE>
+<P><A id=See_also name=See_also></A></P>
+<H2><SPAN class=editsection>[<A title="Edit section: See also" 
+href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=5">edit</A>]</SPAN> 
+<SPAN class=mw-headline>See also</SPAN></H2>
+<UL>
+  <LI><A title="Pruning (Algorithm)" 
+  href="http://en.wikipedia.org/wiki/Pruning_(Algorithm)">Pruning 
+  (Algorithm)</A> 
+  <LI><A title="Branch and bound" 
+  href="http://en.wikipedia.org/wiki/Branch_and_bound">Branch and bound</A> 
+  <LI><A title=Minimax href="http://en.wikipedia.org/wiki/Minimax">Minimax</A> 
+  <LI><A title="Combinatorial optimization" 
+  href="http://en.wikipedia.org/wiki/Combinatorial_optimization">Combinatorial 
+  optimization</A> 
+  <LI><A title=Negamax href="http://en.wikipedia.org/wiki/Negamax">Negamax</A> 
+  <LI><A title="Transposition table" 
+  href="http://en.wikipedia.org/wiki/Transposition_table">Transposition 
+  table</A> 
+  <LI><A title=MTD(f) href="http://en.wikipedia.org/wiki/MTD(f)">MTD(f)</A> 
+  <LI><A title="Killer heuristic" 
+  href="http://en.wikipedia.org/wiki/Killer_heuristic">Killer heuristic</A> 
+</LI></UL>
+<P><A id=References name=References></A></P>
+<H2><SPAN class=editsection>[<A title="Edit section: References" 
+href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=6">edit</A>]</SPAN> 
+<SPAN class=mw-headline>References</SPAN></H2>
+<OL class=references>
+  <LI id=_note-0><B><A title="" 
+  href="http://en.wikipedia.org/wiki/Alpha-beta_pruning#_ref-0">^</A></B> S.J. 
+  Russell and P. Norvig (2003). <I><A 
+  title="Artificial Intelligence: A Modern Approach" 
+  href="http://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">Artificial 
+  Intelligence: A Modern Approach</A></I>. Second Edition, Prentice Hall. 
+</LI></OL>
+<P><A id=External_links name=External_links></A></P>
+<H2><SPAN class=editsection>[<A title="Edit section: External links" 
+href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=7">edit</A>]</SPAN> 
+<SPAN class=mw-headline>External links</SPAN></H2>
+<UL>
+  <LI><A class="external free" 
+  title=http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L1_5B_McCullough_Melnyk/ 
+  href="http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L1_5B_McCullough_Melnyk/">http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L1_5B_McCullough_Melnyk/</A> 
+
+  <LI><A class="external free" 
+  title=http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L2_5B_Lima_Neitz/search.html 
+  href="http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L2_5B_Lima_Neitz/search.html">http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L2_5B_Lima_Neitz/search.html</A> 
+
+  <LI><A class="external free" 
+  title=http://www.maths.nott.ac.uk/personal/anw/G13GAM/alphabet.html 
+  href="http://www.maths.nott.ac.uk/personal/anw/G13GAM/alphabet.html">http://www.maths.nott.ac.uk/personal/anw/G13GAM/alphabet.html</A> 
+
+  <LI><A class="external free" title=http://chess.verhelst.org/search.html 
+  href="http://chess.verhelst.org/search.html">http://chess.verhelst.org/search.html</A> 
+
+  <LI><A class="external free" title=http://www.computerchess.us/gtchess 
+  href="http://www.computerchess.us/gtchess">http://www.computerchess.us/gtchess</A> 
+  (alpha-beta source code and demo program) 
+  <LI><A class="external free" title=http://www.frayn.net/beowulf/index.html 
+  href="http://www.frayn.net/beowulf/index.html">http://www.frayn.net/beowulf/index.html</A> 
+
+  <LI><A class="external free" 
+  title=http://www.seanet.com/~brucemo/topics/alphabeta.htm 
+  href="http://www.seanet.com/~brucemo/topics/alphabeta.htm">http://www.seanet.com/~brucemo/topics/alphabeta.htm</A> 
+  </LI></UL><!-- Saved in parser cache with key enwiki:pcache:idhash:159501-0!1!0!default!!en!2 and timestamp 20061127072703 -->
+<DIV class=printfooter>Retrieved from "<A 
+href="http://en.wikipedia.org/wiki/Alpha-beta_pruning">http://en.wikipedia.org/wiki/Alpha-beta_pruning</A>"</DIV>
+<DIV id=catlinks>
+<P class=catlinks><A title=Special:Categories 
+href="http://en.wikipedia.org/wiki/Special:Categories">Categories</A>: <SPAN 
+dir=ltr><A title="Category:Articles with unsourced statements" 
+href="http://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements">Articles 
+with unsourced statements</A></SPAN> | <SPAN dir=ltr><A 
+title="Category:Game artificial intelligence" 
+href="http://en.wikipedia.org/wiki/Category:Game_artificial_intelligence">Game 
+artificial intelligence</A></SPAN></P></DIV><!-- end content -->
+<DIV class=visualClear></DIV></DIV></DIV></DIV>
+<DIV id=column-one>
+<DIV class=portlet id=p-cactions>
+<H5>Views</H5>
+<UL>
+  <LI class=selected id=ca-nstab-main><A 
+  href="http://en.wikipedia.org/wiki/Alpha-beta_pruning">Article</A> 
+  <LI id=ca-talk><A 
+  href="http://en.wikipedia.org/wiki/Talk:Alpha-beta_pruning">Discussion</A> 
+  <LI id=ca-edit><A 
+  href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;action=edit">Edit 
+  this page</A> 
+  <LI id=ca-history><A 
+  href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;action=history">History</A> 
+  </LI></UL></DIV>
+<DIV class=portlet id=p-personal>
+<H5>Personal tools</H5>
+<DIV class=pBody>
+<UL>
+  <LI id=pt-login><A 
+  href="http://en.wikipedia.org/w/index.php?title=Special:Userlogin&amp;returnto=Alpha-beta_pruning">Sign 
+  in / create account</A> </LI></UL></DIV></DIV>
+<DIV class=portlet id=p-logo><A title="Main Page" 
+style="BACKGROUND-IMAGE: url(/images/wiki-en.png)" 
+href="http://en.wikipedia.org/wiki/Main_Page"></A></DIV>
+<SCRIPT type=text/javascript> if (window.isMSIE55) fixalpha(); </SCRIPT>
+
+<DIV class=portlet id=p-navigation>
+<H5>Navigation</H5>
+<DIV class=pBody>
+<UL>
+  <LI id=n-mainpage><A href="http://en.wikipedia.org/wiki/Main_Page">Main 
+  Page</A> 
+  <LI id=n-portal><A 
+  href="http://en.wikipedia.org/wiki/Wikipedia:Community_Portal">Community 
+  Portal</A> 
+  <LI id=n-Featured-content><A 
+  href="http://en.wikipedia.org/wiki/Wikipedia:Featured_content">Featured 
+  content</A> 
+  <LI id=n-currentevents><A 
+  href="http://en.wikipedia.org/wiki/Portal:Current_events">Current events</A> 
+  <LI id=n-recentchanges><A 
+  href="http://en.wikipedia.org/wiki/Special:Recentchanges">Recent changes</A> 
+  <LI id=n-randompage><A 
+  href="http://en.wikipedia.org/wiki/Special:Random">Random article</A> 
+  <LI id=n-help><A href="http://en.wikipedia.org/wiki/Help:Contents">Help</A> 
+  <LI id=n-contact><A 
+  href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</A> 
+
+  <LI id=n-sitesupport><A 
+  href="http://wikimediafoundation.org/wiki/Fundraising">Donations</A> 
+</LI></UL></DIV></DIV>
+<DIV class=portlet id=p-search>
+<H5><LABEL for=searchInput>Search</LABEL></H5>
+<DIV class=pBody id=searchBody>
+<FORM id=searchform action=/wiki/Special:Search>
+<DIV><INPUT id=searchInput accessKey=f name=search> <INPUT class=searchButton id=searchGoButton type=submit value=Go name=go>&nbsp; <INPUT class=searchButton id=mw-searchButton type=submit value=Search name=fulltext> 
+</DIV></FORM></DIV></DIV>
+<DIV class=portlet id=p-tb>
+<H5>Toolbox</H5>
+<DIV class=pBody>
+<UL>
+  <LI id=t-whatlinkshere><A 
+  href="http://en.wikipedia.org/wiki/Special:Whatlinkshere/Alpha-beta_pruning">What 
+  links here</A> 
+  <LI id=t-recentchangeslinked><A 
+  href="http://en.wikipedia.org/wiki/Special:Recentchangeslinked/Alpha-beta_pruning">Related 
+  changes</A> 
+  <LI id=t-upload><A href="http://en.wikipedia.org/wiki/Special:Upload">Upload 
+  file</A> 
+  <LI id=t-specialpages><A 
+  href="http://en.wikipedia.org/wiki/Special:Specialpages">Special pages</A> 
+  <LI id=t-print><A 
+  href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;printable=yes">Printable 
+  version</A> 
+  <LI id=t-permalink><A 
+  href="http://en.wikipedia.org/w/index.php?title=Alpha-beta_pruning&amp;oldid=87692702">Permanent 
+  link</A>
+  <LI id=t-cite><A 
+  href="http://en.wikipedia.org/w/index.php?title=Special:Cite&amp;page=Alpha-beta_pruning&amp;id=87692702">Cite 
+  this article</A> </LI></UL></DIV></DIV>
+<DIV class=portlet id=p-lang>
+<H5>In other languages</H5>
+<DIV class=pBody>
+<UL>
+  <LI class=interwiki-de><A 
+  href="http://de.wikipedia.org/wiki/Alpha-Beta-Suche">Deutsch</A> 
+  <LI class=interwiki-fr><A 
+  href="http://fr.wikipedia.org/wiki/Ãlagage_alpha-beta">Français</A> 
+  <LI class=interwiki-pl><A 
+  href="http://pl.wikipedia.org/wiki/Algorytm_alpha-beta">Polski</A> 
+</LI></UL></DIV></DIV></DIV><!-- end of the left (by default at least) column -->
+<DIV class=visualClear></DIV>
+<DIV id=footer>
+<DIV id=f-poweredbyico><A href="http://www.mediawiki.org/"><IMG alt=MediaWiki 
+src="Alpha-beta pruning - Wikipedia, the free encyclopedia_archivos/poweredby_mediawiki_88x31.png"></A></DIV>
+<DIV id=f-copyrightico><A href="http://wikimediafoundation.org/"><IMG 
+alt="Wikimedia Foundation" 
+src="Alpha-beta pruning - Wikipedia, the free encyclopedia_archivos/wikimedia-button.png" 
+border=0></A></DIV>
+<UL id=f-list>
+  <LI id=lastmod>This page was last modified 04:13, 14 November 2006. 
+  <LI id=copyright>All text is available under the terms of the <A 
+  class=internal title="Wikipedia:Text of the GNU Free Documentation License" 
+  href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License">GNU 
+  Free Documentation License</A>. (See <B><A class=internal 
+  title=Wikipedia:Copyrights 
+  href="http://en.wikipedia.org/wiki/Wikipedia:Copyrights">Copyrights</A></B> 
+  for details.) <BR>Wikipedia® is a registered trademark of the Wikimedia 
+  Foundation, Inc.<BR>
+  <LI id=privacy><A title="wikimedia:Privacy policy" 
+  href="http://wikimediafoundation.org/wiki/Privacy_policy">Privacy policy</A> 
+  <LI id=about><A title=Wikipedia:About 
+  href="http://en.wikipedia.org/wiki/Wikipedia:About">About Wikipedia</A> 
+  <LI id=disclaimer><A title="Wikipedia:General disclaimer" 
+  href="http://en.wikipedia.org/wiki/Wikipedia:General_disclaimer">Disclaimers</A> 
+  </LI></UL></DIV>
+<SCRIPT type=text/javascript>if (window.runOnloadHook) runOnloadHook();</SCRIPT>
+</DIV><!-- Served by srv49 in 0.118 secs. --></BODY></HTML>

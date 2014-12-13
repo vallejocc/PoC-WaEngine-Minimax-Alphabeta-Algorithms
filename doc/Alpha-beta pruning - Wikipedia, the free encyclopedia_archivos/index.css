@@ -1,0 +1,302 @@
+OL.references {
+	FONT-SIZE: 100%
+}
+.references-small {
+	FONT-SIZE: 90%
+}
+.references-2column {
+	FONT-SIZE: 90%; moz-column-count: 2; column-count: 2
+}
+.same-bg {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+TABLE.wikitable {
+	BORDER-RIGHT: #aaaaaa 1px solid; BORDER-TOP: #aaaaaa 1px solid; BACKGROUND: #f9f9f9; MARGIN: 1em 1em 1em 0px; BORDER-LEFT: #aaaaaa 1px solid; BORDER-BOTTOM: #aaaaaa 1px solid; BORDER-COLLAPSE: collapse
+}
+TABLE.prettytable {
+	BORDER-RIGHT: #aaaaaa 1px solid; BORDER-TOP: #aaaaaa 1px solid; BACKGROUND: #f9f9f9; MARGIN: 1em 1em 1em 0px; BORDER-LEFT: #aaaaaa 1px solid; BORDER-BOTTOM: #aaaaaa 1px solid; BORDER-COLLAPSE: collapse
+}
+TABLE.wikitable TH {
+	BORDER-RIGHT: #aaaaaa 1px solid; PADDING-RIGHT: 0.2em; BORDER-TOP: #aaaaaa 1px solid; PADDING-LEFT: 0.2em; PADDING-BOTTOM: 0.2em; BORDER-LEFT: #aaaaaa 1px solid; PADDING-TOP: 0.2em; BORDER-BOTTOM: #aaaaaa 1px solid
+}
+TABLE.wikitable TD {
+	BORDER-RIGHT: #aaaaaa 1px solid; PADDING-RIGHT: 0.2em; BORDER-TOP: #aaaaaa 1px solid; PADDING-LEFT: 0.2em; PADDING-BOTTOM: 0.2em; BORDER-LEFT: #aaaaaa 1px solid; PADDING-TOP: 0.2em; BORDER-BOTTOM: #aaaaaa 1px solid
+}
+TABLE.prettytable TH {
+	BORDER-RIGHT: #aaaaaa 1px solid; PADDING-RIGHT: 0.2em; BORDER-TOP: #aaaaaa 1px solid; PADDING-LEFT: 0.2em; PADDING-BOTTOM: 0.2em; BORDER-LEFT: #aaaaaa 1px solid; PADDING-TOP: 0.2em; BORDER-BOTTOM: #aaaaaa 1px solid
+}
+TABLE.prettytable TD {
+	BORDER-RIGHT: #aaaaaa 1px solid; PADDING-RIGHT: 0.2em; BORDER-TOP: #aaaaaa 1px solid; PADDING-LEFT: 0.2em; PADDING-BOTTOM: 0.2em; BORDER-LEFT: #aaaaaa 1px solid; PADDING-TOP: 0.2em; BORDER-BOTTOM: #aaaaaa 1px solid
+}
+TABLE.wikitable TH {
+	BACKGROUND: #f2f2f2; TEXT-ALIGN: center
+}
+TABLE.prettytable TH {
+	BACKGROUND: #f2f2f2; TEXT-ALIGN: center
+}
+TABLE.wikitable CAPTION {
+	FONT-WEIGHT: bold
+}
+TABLE.prettytable CAPTION {
+	FONT-WEIGHT: bold
+}
+TABLE.navbox {
+	CLEAR: both; BORDER-RIGHT: #aaaaaa 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aaaaaa 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 90%; PADDING-BOTTOM: 5px; MARGIN: 1em 0em 0em; BORDER-LEFT: #aaaaaa 1px solid; WIDTH: 100%; PADDING-TOP: 5px; BORDER-BOTTOM: #aaaaaa 1px solid; BACKGROUND-COLOR: #f9f9f9; TEXT-ALIGN: center
+}
+TABLE.navbox TH {
+	PADDING-RIGHT: 1em; PADDING-LEFT: 1em; BACKGROUND-COLOR: #ccccff
+}
+UNKNOWN {
+	BACKGROUND-COLOR: #ddddff
+}
+
+@media Print    
+{
+.navbox {
+	DISPLAY: none
+}
+    }
+.infobox {
+	CLEAR: right; BORDER-RIGHT: #aaaaaa 1px solid; PADDING-RIGHT: 0.2em; BORDER-TOP: #aaaaaa 1px solid; PADDING-LEFT: 0.2em; FLOAT: right; MARGIN-BOTTOM: 0.5em; PADDING-BOTTOM: 0.2em; MARGIN-LEFT: 1em; BORDER-LEFT: #aaaaaa 1px solid; COLOR: black; PADDING-TOP: 0.2em; BORDER-BOTTOM: #aaaaaa 1px solid; BACKGROUND-COLOR: #f9f9f9
+}
+.infobox TD {
+	VERTICAL-ALIGN: top
+}
+.infobox TH {
+	VERTICAL-ALIGN: top
+}
+.infobox CAPTION {
+	FONT-SIZE: larger
+}
+.bordered {
+	BORDER-COLLAPSE: collapse
+}
+.bordered TD {
+	BORDER-RIGHT: #aaaaaa 1px solid; BORDER-TOP: #aaaaaa 1px solid; BORDER-LEFT: #aaaaaa 1px solid; BORDER-BOTTOM: #aaaaaa 1px solid
+}
+.bordered TH {
+	BORDER-RIGHT: #aaaaaa 1px solid; BORDER-TOP: #aaaaaa 1px solid; BORDER-LEFT: #aaaaaa 1px solid; BORDER-BOTTOM: #aaaaaa 1px solid
+}
+.bordered .borderless TD {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.bordered .borderless TH {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.sisterproject {
+	FONT-SIZE: 90%; WIDTH: 20em
+}
+.bordered .mergedtoprow TD {
+	BORDER-RIGHT: #aaaaaa 1px solid; BORDER-TOP: #aaaaaa 1px solid; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px
+}
+.bordered .mergedtoprow TH {
+	BORDER-RIGHT: #aaaaaa 1px solid; BORDER-TOP: #aaaaaa 1px solid; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px
+}
+.bordered .mergedrow TD {
+	BORDER-TOP-WIDTH: 0px; BORDER-RIGHT: #aaaaaa 1px solid; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px
+}
+.bordered .mergedrow TH {
+	BORDER-TOP-WIDTH: 0px; BORDER-RIGHT: #aaaaaa 1px solid; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px
+}
+.geography {
+	BORDER-RIGHT: #ccd2d9 1px solid; BORDER-TOP: #ccd2d9 1px solid; FONT-SIZE: 90%; BORDER-LEFT: #ccd2d9 1px solid; LINE-HEIGHT: 1.2em; BORDER-BOTTOM: #ccd2d9 1px solid; BORDER-COLLAPSE: collapse; TEXT-ALIGN: left
+}
+.geography TD {
+	PADDING-RIGHT: 0.2em; BORDER-TOP: #ccd2d9 1px solid; PADDING-LEFT: 0.8em; PADDING-BOTTOM: 0.4em; PADDING-TOP: 0.4em
+}
+.geography TH {
+	PADDING-RIGHT: 0.2em; BORDER-TOP: #ccd2d9 1px solid; PADDING-LEFT: 0.8em; PADDING-BOTTOM: 0.4em; PADDING-TOP: 0.4em
+}
+.geography .mergedtoprow TD {
+	PADDING-RIGHT: 0.2em; BORDER-TOP: #ccd2d9 1px solid; PADDING-LEFT: 0.8em; PADDING-BOTTOM: 0.2em; PADDING-TOP: 0.4em
+}
+.geography .mergedtoprow TH {
+	PADDING-RIGHT: 0.2em; BORDER-TOP: #ccd2d9 1px solid; PADDING-LEFT: 0.8em; PADDING-BOTTOM: 0.2em; PADDING-TOP: 0.4em
+}
+.geography .mergedrow TD {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0.2em; PADDING-LEFT: 0.8em; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0.2em; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.geography .mergedrow TH {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0.2em; PADDING-LEFT: 0.8em; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0.2em; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.geography .mergedbottomrow TD {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0.2em; PADDING-LEFT: 0.8em; PADDING-BOTTOM: 0.4em; PADDING-TOP: 0px; BORDER-BOTTOM: #ccd2d9 1px solid
+}
+.geography .mergedbottomrow TH {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0.2em; PADDING-LEFT: 0.8em; PADDING-BOTTOM: 0.4em; PADDING-TOP: 0px; BORDER-BOTTOM: #ccd2d9 1px solid
+}
+.geography .maptable TD {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.geography .maptable TH {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.notice {
+	PADDING-RIGHT: 0.2em; PADDING-LEFT: 0.2em; PADDING-BOTTOM: 0.2em; MARGIN: 1em; PADDING-TOP: 0.2em
+}
+#disambig {
+	BORDER-TOP: #cccccc 1px solid; BORDER-BOTTOM: #cccccc 1px solid
+}
+#spoiler {
+	BORDER-TOP: #ddd 2px solid; BORDER-BOTTOM: #ddd 2px solid
+}
+.Talk-Notice {
+	BORDER-RIGHT: #c0c090 1px solid; BORDER-TOP: #c0c090 1px solid; MARGIN-BOTTOM: 3px; MARGIN-LEFT: auto; BORDER-LEFT: #c0c090 1px solid; WIDTH: 85%; MARGIN-RIGHT: auto; BORDER-BOTTOM: #c0c090 1px solid; BACKGROUND-COLOR: #f8eaba; border-spacing: 3px
+}
+.Talk-Notice:unknown {
+	content: "The CSS for this template should be changed. See [[Wikipedia:Template Standardisation]]."
+}
+.Talk-Notice TD {
+	
+}
+TABLE.metadata {
+	BORDER-RIGHT: #aaaaaa 1px solid; BORDER-TOP: #aaaaaa 1px solid; DISPLAY: none; BORDER-LEFT: #aaaaaa 1px solid; BORDER-BOTTOM: #aaaaaa 1px solid; speak: none
+}
+.metadata-label {
+	COLOR: #aaaaaa
+}
+TABLE.persondata {
+	BORDER-RIGHT: #aaaaaa 1px solid; BORDER-TOP: #aaaaaa 1px solid; DISPLAY: none; BORDER-LEFT: #aaaaaa 1px solid; BORDER-BOTTOM: #aaaaaa 1px solid; speak: none
+}
+.persondata-label {
+	COLOR: #aaaaaa
+}
+.allpagesredirect {
+	FONT-STYLE: italic
+}
+.Use_Default_Date_Convention {
+	DISPLAY: inline
+}
+.Use_AD_and_BC {
+	DISPLAY: none
+}
+.Use_BCE_and_CE {
+	DISPLAY: none
+}
+.audiolink A {
+	PADDING-RIGHT: 0px! important; PADDING-LEFT: 16px! important; BACKGROUND: url(http://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/11px-Loudspeaker.svg.png) no-repeat left center
+}
+DIV.listenlist {
+	PADDING-LEFT: 40px; BACKGROUND: url(http://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Gnome-speakernotes.png/30px-Gnome-speakernotes.png)
+}
+DIV.videolist {
+	PADDING-LEFT: 50px; BACKGROUND: url(http://upload.wikimedia.org/wikipedia/en/thumb/2/20/Tango-video-x-generic.png/40px-Tango-video-x-generic.png)
+}
+DIV.multivideolist {
+	PADDING-LEFT: 50px; BACKGROUND: url(http://upload.wikimedia.org/wikipedia/en/thumb/2/20/Tango-video-x-generic.png/40px-Tango-video-x-generic.png)
+}
+DIV.medialist {
+	BACKGROUND-POSITION: left top; MIN-HEIGHT: 50px; MARGIN: 1em; BACKGROUND-REPEAT: no-repeat
+}
+DIV.medialist UL {
+	LIST-STYLE-IMAGE: none; MARGIN: 0px; LIST-STYLE-TYPE: none
+}
+DIV.medialist UL LI {
+	PADDING-BOTTOM: 0.5em
+}
+DIV.medialist UL LI LI {
+	FONT-SIZE: 91%; PADDING-BOTTOM: 0px
+}
+UNKNOWN {
+	PADDING-RIGHT: 16px; BACKGROUND: url(http://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Icons-mini-file_acrobat.gif/15px-Icons-mini-file_acrobat.gif) no-repeat right center
+}
+SPAN.PDFlink A {
+	PADDING-RIGHT: 17px! important; BACKGROUND: url(http://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Icons-mini-file_acrobat.gif/15px-Icons-mini-file_acrobat.gif) no-repeat right center
+}
+DIV.columns-2 DIV.column {
+	FLOAT: left; WIDTH: 50%; min-width: 300px
+}
+DIV.columns-3 DIV.column {
+	FLOAT: left; WIDTH: 33.3%; min-width: 200px
+}
+DIV.columns-4 DIV.column {
+	FLOAT: left; WIDTH: 25%; min-width: 150px
+}
+DIV.columns-5 DIV.column {
+	FLOAT: left; WIDTH: 20%; min-width: 120px
+}
+.plainlinksneverexpand {
+	PADDING-RIGHT: 0px! important; PADDING-LEFT: 0px! important; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-BOTTOM: 0px! important; PADDING-TOP: 0px! important
+}
+.plainlinksneverexpand .urlexpansion {
+	DISPLAY: none! important
+}
+.plainlinksneverexpand A {
+	PADDING-RIGHT: 0px! important; PADDING-LEFT: 0px! important; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-BOTTOM: 0px! important; PADDING-TOP: 0px! important
+}
+.plainlinksneverexpand A.text:unknown {
+	DISPLAY: none! important
+}
+.plainlinksneverexpand A.autonumber:unknown {
+	DISPLAY: none! important
+}
+.messagebox {
+	BORDER-RIGHT: #aaaaaa 1px solid; PADDING-RIGHT: 0.2em; BORDER-TOP: #aaaaaa 1px solid; PADDING-LEFT: 0.2em; PADDING-BOTTOM: 0.2em; MARGIN: 0px auto 1em; BORDER-LEFT: #aaaaaa 1px solid; WIDTH: 80%; PADDING-TOP: 0.2em; BORDER-BOTTOM: #aaaaaa 1px solid; BACKGROUND-COLOR: #f9f9f9
+}
+.merge {
+	BORDER-RIGHT: #c0b8cc 1px solid; BORDER-TOP: #c0b8cc 1px solid; BORDER-LEFT: #c0b8cc 1px solid; BORDER-BOTTOM: #c0b8cc 1px solid; BACKGROUND-COLOR: #f0e5ff; TEXT-ALIGN: center
+}
+.cleanup {
+	BORDER-RIGHT: #9f9fff 1px solid; BORDER-TOP: #9f9fff 1px solid; BORDER-LEFT: #9f9fff 1px solid; BORDER-BOTTOM: #9f9fff 1px solid; BACKGROUND-COLOR: #efefff; TEXT-ALIGN: center
+}
+.standard-talk {
+	BORDER-RIGHT: #c0c090 1px solid; BORDER-TOP: #c0c090 1px solid; BORDER-LEFT: #c0c090 1px solid; BORDER-BOTTOM: #c0c090 1px solid; BACKGROUND-COLOR: #f8eaba
+}
+#file IMG {
+	BACKGROUND: url(http://upload.wikimedia.org/wikipedia/commons/5/5d/Checker-16x16.png)
+}
+.IPA {
+	FONT-FAMILY: Chrysanthi Unicode, Doulos SIL, Gentium, GentiumAlt, Code2000, TITUS Cyberbit Basic, DejaVu Sans, Bitstream Cyberbit, Arial Unicode MS, Lucida Sans Unicode, Hiragino Kaku Gothic Pro, Matrix Unicode
+}
+.Unicode {
+	FONT-FAMILY: Code2000, TITUS Cyberbit Basic, Doulos SIL, Chrysanthi Unicode, Bitstream Cyberbit, Bitstream CyberBase, Thryomanes, Gentium, GentiumAlt, Visual Geez Unicode, Lucida Grande, Arial Unicode MS, Microsoft Sans Serif, Lucida Sans Unicode
+}
+.latinx {
+	FONT-FAMILY: Code2000, TITUS Cyberbit Basic, Microsoft Sans Serif
+}
+.polytonic {
+	FONT-FAMILY: Athena, Gentium, Palatino Linotype, Arial Unicode MS, Lucida Sans Unicode, Lucida Grande, Code2000
+}
+.mufi {
+	FONT-FAMILY: Alphabetum, Cardo, LeedsUni, Junicode, TITUS Cyberbit Basic, ALPHA-Demo
+}
+#wpSave {
+	FONT-WEIGHT: bold
+}
+.hiddenStructure {
+	DISPLAY: inline! important; COLOR: #f00; BACKGROUND-COLOR: #0f0
+}
+.nounderlines A {
+	TEXT-DECORATION: none
+}
+.IPA A:link {
+	TEXT-DECORATION: none
+}
+.IPA A:visited {
+	TEXT-DECORATION: none
+}
+
+@media Print    
+{
+#privacy {
+	DISPLAY: none
+}
+#about {
+	DISPLAY: none
+}
+#disclaimer {
+	DISPLAY: none
+}
+    }
+#EnWpMpBook {
+	BACKGROUND-IMAGE: url(http://upload.wikimedia.org/wikipedia/en/7/7e/MP-open-book.png)
+}
+#EnWpMpSearch {
+	BACKGROUND: url(http://upload.wikimedia.org/wikipedia/en/a/ae/MP-magnifying-glass.png) no-repeat right top
+}
+#EnWpMpSearchInner {
+	FLOAT: right; WIDTH: 20em; TEXT-ALIGN: center
+}
+.small-talk {
+	CLEAR: both; FONT-SIZE: 85%; BACKGROUND: #f8eaba; FLOAT: right; MARGIN: 0px 0px 1em 1em; WIDTH: 238px; LINE-HEIGHT: 1.25em
+}
